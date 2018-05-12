@@ -1,0 +1,2291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.4</version>
+    <date>2018-05-12T13:52:09Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template App Smartmontools Linux</template>
+            <name>Template App Smartmontools Linux</name>
+            <description>Шаблон мониторинга дисков с помощью smatrmontools https://www.smartmontools.org</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>smartmontools</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Версия smartctl</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>smartctl.version</key>
+                    <delay>10m;10m/1-7,00:00-24:00</delay>
+                    <history>30d</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>smartmontools</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Обнаружение дисков</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>smartctl.discovery</key>
+                    <delay>10m;10m/1-7,00:00-24:00</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30d</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>1 Частота ошибок чтения с диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[1 Raw_Read_Error_Rate, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>1 Raw_Read_Error_Rate.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>3 Время раскрутки шпинделя диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[3 Spin_Up_Time, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Время раскрутки пакета дисков из состояния покоя до рабочей скорости.&#13;
+Растёт при износе механики (повышенное трение в подшипнике и т. п.), также может свидетельствовать о некачественном питании (например, просадке напряжения при старте диска).</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>3 Spin_Up_Time.* ([0-9]+).*
+\1</params>
+                                </step>
+                                <step>
+                                    <type>1</type>
+                                    <params>1e-3</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>4 Число циклов запуска-остановки шпинделя диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[4 Start_Stop_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Полное число циклов запуск-остановка шпинделя.&#13;
+У дисков некоторых производителей (например, Seagate) — счётчик включения режима энергосбережения.&#13;
+В поле raw value хранится общее количество запусков/остановок диска.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>4 Start_Stop_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>5 Число перераспределённых секторов диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[5 Reallocated_Sector_Ct, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число операций переназначения секторов. Когда диск обнаруживает ошибку чтения/записи, он помечает сектор «переназначенным» и переносит данные в специально отведённую резервную область.&#13;
+Вот почему на современных жёстких дисках нельзя увидеть bad-блоки — все они спрятаны в переназначенных секторах.&#13;
+Этот процесс называют remapping, а переназначенный сектор — remap.&#13;
+Чем больше raw значение, тем хуже состояние поверхности дисков.&#13;
+Поле raw value содержит общее количество переназначенных секторов.&#13;
+Рост raw значения этого атрибута может свидетельствовать об ухудшении состояния поверхности блинов диска.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>5 Reallocated_Sector_Ct.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>9 Время, проведённое во включенном состоянии для диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[9 Power_On_Hours, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>s</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число часов (минут, секунд — в зависимости от производителя), проведённых во включенном состоянии.&#13;
+В качестве порогового значения для него выбирается паспортное время наработки на отказ (MTBF — mean time between failure).</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>9 Power_On_Hours.* ([0-9]+)h?.*
+\1</params>
+                                </step>
+                                <step>
+                                    <type>1</type>
+                                    <params>3600</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>10 Количество попыток раскрутки диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[10 Spin_Retry_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число повторных попыток раскрутки дисков до рабочей скорости в случае, если первая попытка была неудачной.&#13;
+Если значение атрибута увеличивается, то велика вероятность неполадок с механической частью.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>10 Spin_Retry_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>11 Количество попыток калибровки диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[11 Calibration_Retry_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Количество повторов запросов рекалибровки в случае, если первая попытка была неудачной.&#13;
+Если значение атрибута увеличивается, то велика вероятность проблем с механической частью.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>11 Calibration_Retry_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>12 Количество циклов включения-выключения диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[12 Power_Cycle_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>12 Power_Cycle_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>170 Доступное зарезервированное пространство диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[170 Available_Reservd_Space, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>%</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Доступное зарезервированное пространство в процентах в Intel SSD</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>170 Available_Reservd_Space.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>171 Количество сбоев флэш-программы диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[171 Program_Fail_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Количество сбоев флэш-программы с момента старта диска</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>171 Program_Fail_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>172 Количество сбоев операций стирания диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[172 Erase_Fail_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Общее количество сбоев операций стирания Flash.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>172 Erase_Fail_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>183 Количество переключений на пониженную скорость диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[183 SATA_Downshift_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Для Western Digital, Samsung и Seagate содержит количество операций переключения на пониженную скорость, например с 6 Гб/с на 3 Гб/с</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>183 SATA_Downshift_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>184 Количество ошибок передачи данных от диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[184 End-to-End_Error, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Данный атрибут — часть технологии HP SMART IV — означает, что после передачи данных через кэш-память чётность данных между хостом и жёстким диском не совпадает.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>184 End-to-End_Error.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>187 Количество невосстановленных ошибок на диске {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[187 Uncorrectable_Error_Cnt, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Ошибки, которые не могли быть восстановлены, используя методы устранения ошибки аппаратными средствами.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>187 Uncorrectable_Error_Cnt.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>190 Температура диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[190 Airflow_Temperature_Cel, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Температура воздуха внутри корпуса жёсткого диска. Для дисков Seagate рассчитывается по формуле (100 — HDA temperature). Для дисков Western Digital — (125- HDA).</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>190 Airflow_Temperature_Cel.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>192 Количество аварийных выключений диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[192 Power-Off_Retract_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число циклов выключений или аварийных отказов (включений/выключений питания накопителя).</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>192 Power-Off_Retract_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>193 Количество циклов парковки магнитной головки диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[193 Load_Cycle_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Количество циклов перемещения блока магнитных головок в парковочную зону / в рабочее положение.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>193 Load_Cycle_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>194 Температура механической части диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[194 Temperature_Celsius, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Здесь хранятся показания встроенного термодатчика для механической части диска — банки (HDA — Hard Disk Assembly).&#13;
+Информация снимается со встроенного термодатчика, которым служит одна из магнитных головок, обычно нижняя в банке.&#13;
+В битовых полях атрибута фиксируются текущая, минимальная и максимальная температура.&#13;
+Не все программы, работающие со SMART, правильно разбирают эти поля, так что к их показаниям стоит относиться критически.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>194 Temperature_Celsius.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>196 Количество операций переназначения секторов диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[196 Reallocated_Event_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число операций переназначения.&#13;
+В поле «raw value» атрибута хранится общее число попыток переноса информации с переназначенных секторов в резервную область.&#13;
+Учитываются как успешные, так и неуспешные попытки.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>196 Reallocated_Event_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>197 Количество секторов - кандидатов на переназначение диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[197 Current_Pending_Sector, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число секторов, являющихся кандидатами на замену.&#13;
+Они не были ещё определены как плохие, но считывание с них отличается от чтения стабильного сектора, это так называемые подозрительные или нестабильные сектора.&#13;
+В случае успешного последующего прочтения сектора он исключается из числа кандидатов.&#13;
+В случае повторных ошибочных чтений накопитель пытается восстановить его и выполняет операцию переназначения (remapping).&#13;
+Рост значения этого атрибута может свидетельствовать о физической деградации жёсткого диска.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>197 Current_Pending_Sector.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>198 Количество невосстанавливаемых секторов на диске {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[198 Offline_Uncorrectable, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число не корректируемых (средствами диска) секторов.&#13;
+В случае увеличения числа ошибок, велика вероятность критических дефектов поверхности и/или механики накопителя.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>198 Offline_Uncorrectable.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>199 Количество ошибок целостности UDMA диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[199 UDMA_CRC_Error_Count, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Число ошибок, возникающих при передаче данных по внешнему интерфейсу в режиме UltraDMA (нарушения целостности пакетов и т. п.).&#13;
+Рост этого атрибута свидетельствует о плохом (мятом, перекрученном) кабеле и плохих контактах.&#13;
+Также подобные ошибки появляются при разгоне шины PCI, сбоях питания, сильных электромагнитных наводках, а иногда и по вине драйвера.&#13;
+Возможно причина в некачественном шлейфе.&#13;
+Для исправления попробуйте использовать SATA шлейф без защёлок, имеющий плотное соединение с контактами диска.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>199 UDMA_CRC_Error_Count.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>200 Количество ошибок записи на диск {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[200 Multi_Zone_Error_Rate, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Показывает общее количество ошибок, происходящих при записи сектора.&#13;
+Показывает общее число ошибок записи на диск.&#13;
+Может служить показателем качества поверхности и механики накопителя.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>200 Multi_Zone_Error_Rate.* ([0-9]+).*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>249 Количество NAND записей на диск {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[249 NAND_Writes_1GiB, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>byte</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Содержит количество операций записи в NAND с шагом в 1 ГБ.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>249 NAND_Writes_1GiB.* ([0-9]+).*
+\1</params>
+                                </step>
+                                <step>
+                                    <type>1</type>
+                                    <params>1073741824</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Количетсво циклов запуска-остановки диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[Accumulated start-stop cycles, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>Accumulated start-stop cycles:[[:space:]]*([0-9]+)
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Температура диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[Current Drive Temperature, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>Current Drive Temperature:[[:space:]]*([0-9]+)[[:space:]]*.*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Температура рабочей поверхности диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[Drive Trip Temperature, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>C</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>Drive Trip Temperature:[[:space:]]*([0-9]+)[[:space:]]*.*
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Количетсво дефектов диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[Elements in grown defect list, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>Elements in grown defect list:[[:space:]]*([0-9]+)
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Свойства диска {#SMART_DISK}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.attributes[{#SMART_DISK}]</key>
+                            <delay>10m;10m/1-7,00:00-24:00</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Состояние диска {#SMART_DISK}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.health[{#SMART_DISK}]</key>
+                            <delay>10m;10m/1-7,00:00-24:00</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>SMART Health Status: (.+)
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Модель диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.info[Device Model, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>([Dd]evice [Mm]odel|[Pp]roduct): *(.+)
+\2</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.info[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Версия прошивки диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.info[Firmware Version, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>([Ff]irmware [Vv]ersion|[Rr]evision): *(.+)
+\2</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.info[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Серийный номер диска {#SMART_DISK}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.info[Serial Number, {#SMART_DISK}]</key>
+                            <delay>0</delay>
+                            <history>30d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>[Ss]erial [Nn]umber: *(.+)
+\1</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype>
+                                <key>smartctl.info[{#SMART_DISK}]</key>
+                            </master_item_prototype>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Информация о диске {#SMART_DISK}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>smartctl.info[{#SMART_DISK}]</key>
+                            <delay>10m;10m/1-7,00:00-24:00</delay>
+                            <history>7d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>smartmontools</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.info[Firmware Version, {#SMART_DISK}].diff()}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Версия прошивки диска {#SMART_DISK} изменена</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[192 Power-Off_Retract_Count, {#SMART_DISK}].change()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Диск {#SMART_DISK} был аварийно выключен</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[Current Drive Temperature, {#SMART_DISK}].last()}&gt;50</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Диск {#SMART_DISK} перегревается</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[190 Airflow_Temperature_Cel, {#SMART_DISK}].last()}&gt;50</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Диск {#SMART_DISK} перегревается (атрибут 190)</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[194 Temperature_Celsius, {#SMART_DISK}].last()}&gt;50</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Диск {#SMART_DISK} перегревается (атрибут 194)</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[183 SATA_Downshift_Count, {#SMART_DISK}].change()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Диск {#SMART_DISK} переключился на пониженную скорость</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[184 End-to-End_Error, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Есть ошибки передачи данных от диска {#SMART_DISK}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[5 Reallocated_Sector_Ct, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Есть перераспределённые сектора на диске {#SMART_DISK}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[171 Program_Fail_Count, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Есть сбои в флэш-программе диска {#SMART_DISK}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.info[Device Model, {#SMART_DISK}].diff()}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Модель диска {#SMART_DISK} изменена</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[198 Offline_Uncorrectable, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} есть невосстанавливаемые сектора</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[187 Uncorrectable_Error_Cnt, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} есть ошибки которые небыли восстановлены</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[172 Erase_Fail_Count, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} есть сбои операций стирания</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[197 Current_Pending_Sector, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} есть сектора - кандидаты на переназначение</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[196 Reallocated_Event_Count, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} зафиксированы операции переназначения секторов</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[200 Multi_Zone_Error_Rate, {#SMART_DISK}].change()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} появились новые ошибки записи</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[199 UDMA_CRC_Error_Count, {#SMART_DISK}].change()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>На диске {#SMART_DISK} появились новые ошибки при передаче данных</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[Elements in grown defect list, {#SMART_DISK}].last()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Найдены дефекты диска {#SMART_DISK}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[12 Power_Cycle_Count, {#SMART_DISK}].change()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Питание диска {#SMART_DISK} было выключено и заново включено</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[Drive Trip Temperature, {#SMART_DISK}].last()}&gt;90</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Рабочая поверхность диска {#SMART_DISK} перегревается</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.info[Serial Number, {#SMART_DISK}].diff()}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Серийный номер диска {#SMART_DISK} изменился</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.health[{#SMART_DISK}].str(ОК)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Состояние диска {#SMART_DISK}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Smartmontools Linux:smartctl.attributes[4 Start_Stop_Count, {#SMART_DISK}].change()}&gt;0</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Шпиндель диска {#SMART_DISK} был остановлен и запущен</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>1</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Температура диска {#SMART_DISK}</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00CC00</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App Smartmontools Linux</host>
+                                        <key>smartctl.attributes[190 Airflow_Temperature_Cel, {#SMART_DISK}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>DD0000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App Smartmontools Linux</host>
+                                        <key>smartctl.attributes[194 Temperature_Celsius, {#SMART_DISK}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>DD00DD</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App Smartmontools Linux</host>
+                                        <key>smartctl.attributes[Current Drive Temperature, {#SMART_DISK}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>0000BB</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template App Smartmontools Linux</host>
+                                        <key>smartctl.attributes[Drive Trip Temperature, {#SMART_DISK}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                    <host_prototypes/>
+                    <jmx_endpoint/>
+                </discovery_rule>
+            </discovery_rules>
+            <httptests/>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{Template App Smartmontools Linux:smartctl.version.diff()}=1</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Версия smartctl изменена</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+    </triggers>
+</zabbix_export>

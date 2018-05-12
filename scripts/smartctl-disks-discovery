@@ -1,0 +1,22 @@
+#!/bin/sh
+
+log() {
+ echo "`date +"[%d/%b/%Y:%H:%M:%S %z]"` ${@}"
+}
+
+SMARTCTL=`which smartctl`
+
+if [ ! -x "$SMARTCTL" ]; then
+    log "Проверьте установлен ли smartmontools и переменную \$PATH=$PATH"
+    exit 1
+fi
+
+$SMARTCTL --scan-open | awk -F " #" -v ORS="" '
+    BEGIN { print "{\"data\":[" }
+    {
+        if ($0 !~ /^#/) {
+            print "{\"{#SMART_DISK}\":\""$1"\"},"
+        }
+    }
+    END { print "]}" }' | \
+sed 's/,]}$/]}\n/'
